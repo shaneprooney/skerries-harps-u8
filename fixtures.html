@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en-IE">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Skerries Harps U8 – Fixtures</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<!--
+  SWITCH (edit ONE value):
+  SITE_STATUS = open | closed | hidden
+-->
+<script>
+  const SITE_STATUS = "closed"; // <-- change this only
+</script>
+
+<!-- Banner (auto switches colour/message based on SITE_STATUS) -->
+<div id="siteBanner" class="banner">
+  <div class="container">
+    <div>
+      <span id="bannerTag" class="tag">Update</span>
+      <span id="bannerMessage">Pitch information available below</span>
+    </div>
+    <div id="bannerHint" class="small" style="color: rgba(255,255,255,0.9);">
+      Check WhatsApp before travelling
+    </div>
+  </div>
+</div>
+
+<header>
+  <div class="container">
+    <div class="brand">
+      <img src="assets/skerries-harps-logo.png" alt="Skerries Harps logo" />
+      <div>
+        <h1>Skerries Harps – U8 Team</h1>
+        <p>Fixtures &amp; Pitch Updates</p>
+      </div>
+    </div>
+  </div>
+
+  <nav>
+    <div class="container nav-row">
+      <a href="index.html">Home</a>
+      <a href="football.html">Football</a>
+      <a href="hurling.html">Hurling</a>
+	  <a href="fixtures.html">Fixtures</a>
+      <a href="referees.html">Referees</a>
+      <a href="admin.html">Admin</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+  </nav>
+</header>
+
+<main class="container">
+
+  <section class="card">
+    <h2>Pitch Updates</h2>
+
+    <!-- Edit this date/time whenever you change the notices -->
+    <div class="updated"><strong>Last updated:</strong> Wed 11 Feb 2026, 08:30</div>
+
+    <div class="notice-grid">
+      <div class="notice closed">
+        <h3>Skerries Main Pitch</h3>
+        <p class="meta"><strong>Status:</strong> Closed</p>
+        <p class="meta">No training or matches on the main pitch.</p>
+      </div>
+
+      <div class="notice unavailable">
+        <h3>All Weather Pitch</h3>
+        <p class="meta"><strong>Status:</strong> Not available</p>
+        <p class="meta">Alternative venue/time may be used.</p>
+      </div>
+
+      <div class="notice closed">
+        <h3>Townparks</h3>
+        <p class="meta"><strong>Status:</strong> Waterlogged</p>
+        <p class="meta">Avoid use until conditions improve.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="card section">
+    <h2>Upcoming Fixtures</h2>
+    <p class="small">Replace this image with your latest fixtures screenshot.</p>
+
+    <div style="margin-top:12px;">
+      <img
+        src="assets/fixtures.png"
+        alt="U8 Fixtures"
+        style="max-width:100%; border-radius:14px; border:1px solid var(--border); box-shadow:0 6px 16px rgba(0,0,0,0.08);"
+      />
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">© Skerries Harps U8</div>
+</footer>
+
+<script>
+  // Banner logic (no build tools needed)
+  const banner = document.getElementById("siteBanner");
+  const tag = document.getElementById("bannerTag");
+  const msg = document.getElementById("bannerMessage");
+  const hint = document.getElementById("bannerHint");
+
+  function setBanner(status){
+    banner.classList.remove("emergency", "info", "hidden");
+
+    if(status === "hidden"){
+      banner.classList.add("hidden");
+      return;
+    }
+
+    if(status === "closed"){
+      banner.classList.add("emergency");
+      tag.textContent = "Important";
+      msg.textContent = "Pitch closures / availability updates in effect today";
+      hint.textContent = "Check WhatsApp before travelling";
+      return;
+    }
+
+    // default: open/info
+    banner.classList.add("info");
+    tag.textContent = "Info";
+    msg.textContent = "Training / matches running as planned (unless notified)";
+    hint.textContent = "Still check WhatsApp for late changes";
+  }
+
+  setBanner(SITE_STATUS);
+</script>
+
+</body>
+</html>

@@ -203,3 +203,84 @@ ul.clean li{margin:6px 0}
 .status.todo{color:#9a3412}
 .status.doing{color:#1d4ed8}
 .status.done{color:#166534}
+
+/* --- Fixtures alerts --- */
+.banner{
+  padding:10px 0;
+  font-weight:800;
+  letter-spacing:0.2px;
+}
+
+.banner.emergency{
+  background:#b91c1c;           /* red */
+  color:#ffffff;
+}
+
+.banner .container{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+}
+
+.banner .tag{
+  display:inline-block;
+  padding:4px 10px;
+  border-radius:999px;
+  background:rgba(255,255,255,0.18);
+  border:1px solid rgba(255,255,255,0.25);
+  font-size:0.85rem;
+}
+
+.notice-grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:12px;
+  margin-top:12px;
+}
+@media (max-width: 900px){
+  .notice-grid{ grid-template-columns:1fr; }
+}
+
+.notice{
+  border-radius:16px;
+  border:1px solid var(--border);
+  padding:14px;
+  background:var(--white);
+}
+
+.notice h3{
+  margin:0 0 6px;
+  font-size:1.05rem;
+}
+
+.notice .meta{
+  font-size:0.95rem;
+  color:var(--muted);
+  margin:0;
+}
+
+.notice.closed{
+  border-color:#fecaca;
+  background:#fff1f2;
+}
+.notice.closed h3{ color:#7f1d1d; }
+
+.notice.unavailable{
+  border-color:#fde68a;
+  background:#fffbeb;
+}
+.notice.unavailable h3{ color:#92400e; }
+
+.notice.info{
+  border-color:#bfdbfe;
+  background:#eff6ff;
+}
+.notice.info h3{ color:#1e3a8a; }
+
+.updated{
+  margin-top:8px;
+  color:var(--muted);
+  font-size:0.95rem;
+}
